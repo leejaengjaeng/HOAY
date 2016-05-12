@@ -7,4 +7,7 @@ def index(request):
 def good(request):
     return HttpResponse("YO MAN")
 
+def fail(request):
+    return HttpResponse("YO MAN!!!")
+
 
