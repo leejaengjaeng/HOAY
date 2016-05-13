@@ -52,36 +52,7 @@ def getAnalytics(request):
 
     request.session['gwanjong'] = result
 
-    print sort
-    # print mediacaptions
-    # # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-
-    # username = request.POST.get('username', 'None')
-
-    # users = api.user_search(q=username)
-    # recent_media, next_ = api.user_recent_media()
-    # photos = []
-    # for media in recent_media:
-    #     print dir(media)
-    #     # photos.append('<img src="%s"/>' % media.images['thumbnail'].url)
-    # print users
-    # print dir(users[0])
-
-    # recent_media, next_ = api.user_recent_media(user_id=users[0].id)
-    # url = "https://api.instagram.com/v1/users/self/follows?access_token=" + access_token
-
-    # import requests
-
-    # result = requests.get(url)
-    # print url
-    # print result
-    # print recent_media
-    # user_id = str(access_token).split('.')[0]
-
-    # followings = api.user_followed_by(user_id)
-
-    # print followings
-    return HttpResponse(json.dumps(result))
+    return render(request, 'result.html')
 
 def getToken(request):
     api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com/api/getToken")
