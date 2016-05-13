@@ -1,6 +1,7 @@
 # encoding: utf-8
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
+from .models import *
 
 import json
 from instagram.client import InstagramAPI
@@ -21,19 +22,38 @@ def getAnalytics(request):
 
     mediacaptions = []
     for media in medialists :
-        # print dir(media)
-        # print media.caption
-        # print dir(media.caption)
-        # result = p.parse(unicode(media.caption))
-        # result = p.parse(media.caption.text)
         tags = media.caption.text.split("#")
         mediacaptions.append(tags[1:])
 
-    result = {'best1' : u'관종', 'best2' : u'관종', 'best3' : u'관종',
-              'best1_count' : 3, 'best2_count' : 2, 'best3_count' : 1,
-              'interesting' : 100}
+    point = 0
+    db = Gwanjong.objects.all()
+
+    frequency = {}
+
+    for caption in mediacaptions :
+        for word in caption:
+            word = unicode(word).strip()
+            if frequency.has_key(word) is True :
+                print frequency
+                print frequency.get(word)
+                frequency[word] += 1
+            else :
+                frequency.setdefault(word, 0)
+            for datum in db:
+                if word.find(datum.word) is 1 :
+                    point += datum.value
+    import operator
+
+    sort = sorted(frequency.items(), key=operator.itemgetter(1))
+
+    result = {'best1' : sort[len(sort) - 1][0], 'best2' : sort[len(sort) - 2][0], 'best3' : sort[len(sort) - 3][0],
+              'best1_count' : sort[len(sort) - 1][1], 'best2_count' : sort[len(sort) - 2][1], 'best3_count' : sort[len(sort) - 3][1],
+              'interesting' : point}
+
     request.session['gwanjong'] = result
-    print mediacaptions
+
+    print sort
+    # print mediacaptions
     # # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
 
     # username = request.POST.get('username', 'None')
