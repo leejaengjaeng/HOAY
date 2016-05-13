@@ -29,6 +29,10 @@ def getAnalytics(request):
         tags = media.caption.text.split("#")
         mediacaptions.append(tags[1:])
 
+    result = {'best1' : u'관종', 'best2' : u'관종', 'best3' : u'관종',
+              'best1_count' : 3, 'best2_count' : 2, 'best3_count' : 1,
+              'interesting' : 100}
+    request.session['gwanjong'] = result
     print mediacaptions
     # # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
 
