@@ -27,7 +27,7 @@ def getAnalytics(request):
         # result = p.parse(unicode(media.caption))
         # result = p.parse(media.caption.text)
         tags = media.caption.text.split("#")
-        mediacaptions.append(tags[1,])
+        mediacaptions.append(tags[1:])
 
     print mediacaptions
     # # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
