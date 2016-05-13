@@ -11,7 +11,7 @@ def index(request):
     result = str(request.get_raw_uri()).split('code=')[1]
     print result
 
-    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:8000")
+    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com")
     access_token = api.exchange_code_for_access_token(str(result))
     print access_token
     # return HttpResponse("GET ACCESSTOKEN")
