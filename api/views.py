@@ -60,8 +60,8 @@ def getAnalytics(request):
     return HttpResponse(mediacaptions)
 
 def getToken(request):
-    # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com/api/getToken")
-    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:8000/api/getToken")
+    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com/api/getToken")
+    # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:8000/api/getToken")
     result = str(request.get_raw_uri()).split('code=')[1]
     print result
 
