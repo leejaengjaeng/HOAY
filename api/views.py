@@ -81,7 +81,7 @@ def getAnalytics(request):
     # followings = api.user_followed_by(user_id)
 
     # print followings
-    return HttpResponse(mediacaptions)
+    return HttpResponse(result)
 
 def getToken(request):
     api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com/api/getToken")
