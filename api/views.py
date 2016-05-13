@@ -19,9 +19,6 @@ def getAnalytics(request):
     medialists = api.user_recent_media()[0]
     print medialists
 
-    from itp import itp
-    p = itp.Parser()
-
     mediacaptions = []
     for media in medialists :
         # print dir(media)
@@ -60,7 +57,7 @@ def getAnalytics(request):
     # followings = api.user_followed_by(user_id)
 
     # print followings
-    return HttpResponse("AA")
+    return HttpResponse(mediacaptions)
 
 def getToken(request):
     api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:8000")
