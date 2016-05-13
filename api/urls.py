@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'good$', views.good, name='good'),
-    url(r'fail$', views.fail, name='fail'),
+    url(r'getAnalytics$', views.getAnalytics, name='getAnalytics'),
+    url(r'getToken$', views.getToken, name='getToken'),
 ]
