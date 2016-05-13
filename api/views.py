@@ -60,7 +60,7 @@ def getAnalytics(request):
     return HttpResponse(mediacaptions)
 
 def getToken(request):
-    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://www.bestjae.com")
+    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com")
     redirect_uri = api.get_authorize_login_url(scope=["basic", "public_content", "follower_list"])
 
     print redirect_uri
