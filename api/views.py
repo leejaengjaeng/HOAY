@@ -60,22 +60,16 @@ def getAnalytics(request):
     return HttpResponse(mediacaptions)
 
 def getToken(request):
-    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com")
-    redirect_uri = api.get_authorize_login_url(scope=["basic", "public_content", "follower_list"])
+    # api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com/api/getToken")
+    api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:8000/api/getToken")
+    result = str(request.get_raw_uri()).split('code=')[1]
+    print result
 
-    print redirect_uri
+    access_token = api.exchange_code_for_access_token(str(result))
 
-    # import requests
-    # from bs4 import BeautifulSoup
-    # result = requests.get(redirect_uri)
-    # bs = BeautifulSoup(result.text)
-    #
-    # table = bs.find('table', 'meta')
-    # print table
-    # accesstoken = api.exchange_code_for_access_token("fbc4f97f0c0346628982cc2e8ea3e675")
-    # accesstoken = api.exchange_code_for_access_token()
-    # print accesstoken
+    request.session['accesstoken'] = access_token
+    context = {'accesstoken': access_token}
 
-    return HttpResponse("<a href=" + redirect_uri + ">GOGO</a>")
+    return render(request, 'analytics.html', context)
 
 
