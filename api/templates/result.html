@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <!--
 	Transit by TEMPLATED
@@ -12,15 +13,16 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-<script src="js/jquery.min.js"></script>
-<script src="js/skel.min.js"></script>
-<script src="js/skel-layers.min.js"></script>
-<script src="js/init.js"></script>
-<noscript>
-	<link rel="stylesheet" href="css/skel.css" />
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/style-xlarge.css" />
-</noscript>
+
+<script src ="{% static "jquery.min.js" %}"></script>
+<script src ="{% static "jquery.canvasjs.min.js" %}"></script>
+<script src ="{% static "skel.min.js" %}"></script>
+<script src ="{% static "skel-layers.min.js" %}"></script>
+<script src ="{% static "init.js" %}"></script>
+<link rel="stylesheet" type = "text/css" href ="{% static "skel.css" %}">
+<link rel="stylesheet" type = "text/css" href ="{% static "style.css" %}">
+<link rel="stylesheet" type = "text/css" href ="{% static "style-xlarge.css" %}">
+<script src ="{% static "canvasjs.min.js" %}"></script>
 </head>
 <body>
 
@@ -37,27 +39,30 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
+		
 	<div class="container">
 
 		<header class="major">
-			<h2>당신의 관심병 지수는 % 입니다.</h2>
-			<p id=inter></p>>
+			<h2>당신의 관심병 지수는 {{interesting}} 입니다.</h2>
+			<p id=inter></p>
 		</header>
 
-		<script type="text/javascript" src="/script/canvasjs.min.js"></script>
-		<script type="text/javascript">
-
-
-		</script>
 		<script type="text/javascript">
 window.onload = function () {
-	var inter_data = "관종";
-	document.getElementById("inter").innerHTML = "당신은 " + inter_data + "입니다."; 
 
-	var chart = new CanvasJS.Chart("chartContainer",
+	var rate = {{interesting}};
+	var inter_data="세션 안물림!";
+	if(rate > 90) inter_data = "200% 관종";
+	else if(rate > 70) inter_data = "관종";
+	else if(rate > 50) inter_data = "거의 관종 ";
+	else if(rate > 30) inter_data = "관심병 초기";
+	else inter_data = "노 관종";
+
+	document.getElementById("inter").innerHTML = "당신은 " + inter_data + "입니다."; 
+	var chart1 = new CanvasJS.Chart("chartContainer1",
 			{
 title:{
-text: "Top Categories of New Year's Resolution"
+text: "당신의 해시태그"
 },
 exportFileName: "Pie Chart",
 exportEnabled: true,
@@ -73,50 +78,22 @@ showInLegend: true,
 toolTipContent: "{legendText}: <strong>{y}%</strong>",
 indexLabel: "{label} {y}%",
 dataPoints: [
-{  y: 83.24, legendText:"관종", label: "관종" },
-{  y: 8.16, legendText:"ㅇㅈ?ㅇㅈ", label: "ㅇㅈ?ㅇㅈ" },
-{  y: 4.67, legendText:"핵노잼", label: "핵노잼" },
-{  y: 1.67, legendText:"자살각" , label: "자살각"},       
-{  y: 0.98, legendText:inter_data , label: inter_data}
+{  y: {{best1_count}}, legendText:"{{best1}}", label:"{{best1}}"},
+{  y: {{best2_count}}, legendText:"{{best2}}", label:"{{best2}}"},
+{  y: {{best3_count}}, legendText:"{{best3}}", label:"{{best3}}"}, 
+{  y: 60, legendText:"ETC", label:"ETC"}
 ]
 }
 ]
 });
-chart.render();
-var chart1 = new CanvasJS.Chart("chartContainer1",
-		{
-title:{
-text: "US Mobile / Tablet OS Market Share, Dec 2012"
-},
-animationEnabled: true,
-theme: "theme2",
-data: [
-{        
-type: "doughnut",
-indexLabelFontFamily: "Garamond",       
-indexLabelFontSize: 20,
-startAngle:0,
-indexLabelFontColor: "dimgrey",       
-indexLabelLineColor: "darkgrey", 
-toolTipContent: "{y} %", 					
-
-dataPoints: [
-{  y: 80, indexLabel: "iOS {y}%" },
-{  y: 20, indexLabel: "" },
-
-	]
-	}
-]
-});
-
 chart1.render();
 }
 		</script>
 		<div id="chartContainer1" style="height: 300px; width: 100%;"></div>
-		<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+		<!--	<div id="chartContainer" style="height: 300px; width: 100%;"></div>-->
 
 	</section>
-
+<!--
 	<!-- Footer -->
 	<footer id="footer">
 		<div class="container">
@@ -164,7 +141,7 @@ chart1.render();
 					</section>
 				</div>
 			</section>
-			<div class="row">
+			-->	<div class="row">
 				<div class="8u 12u$(medium)">
 					<ul class="copyright">
 						<li>&copy; Untitled. All rights reserved.</li>

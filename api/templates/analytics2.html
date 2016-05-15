@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+</head>
+<body>
+<script>
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("demo").innerHTML = xhttp.responseText;
+		}
+	 };
+	xhttp.open("POST", {% csrf_token %}, true);
+	xhttp.send();
+</script>
+</body>
+</html>

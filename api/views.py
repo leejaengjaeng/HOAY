@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import *
+from django.template.response import TemplateResponse
 
 import json
 from instagram.client import InstagramAPI
@@ -51,8 +52,8 @@ def getAnalytics(request):
               'interesting' : point}
 
     request.session['gwanjong'] = result
-
-    return render(request, 'result.html')
+    context = result
+    return TemplateResponse(request, 'result.html', context)
 
 def getToken(request):
     api = InstagramAPI(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://bestjae.com/api/getToken")
