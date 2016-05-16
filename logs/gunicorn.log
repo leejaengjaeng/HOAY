@@ -1,0 +1,53 @@
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/ubuntu/VirtualEnvs/hoay/bin/gunicorn_start: EACCES
+supervisor: child process was not spawned
+Starting howoldareyou as ubuntu
+[2016-05-16 11:26:24 +0000] [3155] [INFO] Starting gunicorn 19.5.0
+[2016-05-16 11:26:24 +0000] [3155] [INFO] Listening at: http://127.0.0.1:8000 (3155)
+[2016-05-16 11:26:24 +0000] [3155] [INFO] Using worker: sync
+[2016-05-16 11:26:24 +0000] [3164] [INFO] Booting worker with pid: 3164
+[2016-05-16 11:26:29 +0000] [3155] [INFO] Handling signal: term
+[2016-05-16 11:26:29 +0000] [3164] [INFO] Worker exiting (pid: 3164)
+[2016-05-16 11:26:29 +0000] [3155] [INFO] Shutting down: Master
+Starting howoldareyou as ubuntu
+[2016-05-16 11:26:30 +0000] [3169] [INFO] Starting gunicorn 19.5.0
+[2016-05-16 11:26:30 +0000] [3169] [INFO] Listening at: http://127.0.0.1:8000 (3169)
+[2016-05-16 11:26:30 +0000] [3169] [INFO] Using worker: sync
+[2016-05-16 11:26:30 +0000] [3178] [INFO] Booting worker with pid: 3178

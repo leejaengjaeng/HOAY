@@ -1,0 +1,31 @@
+#!/bin/bash
+
+NAME="howoldareyou"
+DJANGODIR=/home/ubuntu/VirtualEnvs/hoay/howoldareyou
+USER=ubuntu
+NUM_WORKERS=3
+DJANGO_SETTINGS_MODULE=howoldareyou.settings
+DJANGO_WSGI_MODULE=howoldareyou.wsgi
+ 
+echo "Starting $NAME as `whoami`"
+ 
+# Activate the virtual environment
+cd $DJANGODIR
+source ../bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+
+#127.0.0.1 혹은 $SOCKFILE
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname '127.0.0.1')
+test -d $RUNDIR || mkdir -p $RUNDIR
+ 
+# Start your Django Unicorn
+# 프로젝트 경로에서 실행하던지 파이썬 빌드패스? 설정해줘야 할듯
+cd /home/ubuntu/VirtualEnvs/hoay
+exec gunicorn ${DJANGO_WSGI_MODULE}:application\ 
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user $USER \
+  --log-level debug \
+  --bind unix:'127.0.0.1'
+  
