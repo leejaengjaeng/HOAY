@@ -6,6 +6,7 @@
 #개발 환경
 - Django 
 - instagram api
-- Django 포함 splite DB
-- gunicorn , supervisor 설정 
-- 로컬서버, nginx
+- Django embed splite DB
+- gunicorn
+- supervisor 
+- nginx
